@@ -1,0 +1,39 @@
+{
+  "name": "@vue-next-ui/button",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "keywords": [
+    "vue-next",
+    "ui",
+    "button",
+    "typescript"
+  ],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0-beta.4"
+  },
+  "dependencies": {
+    "@storybook/vue-next": "0.0.0",
+    "tslib": "^1.11.1"
+  },
+  "devDependencies": {
+    "@storybook/vue-next": "0.0.0"
+  },
+  "engines": {
+    "node": ">= 10",
+    "npm": ">= 6"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

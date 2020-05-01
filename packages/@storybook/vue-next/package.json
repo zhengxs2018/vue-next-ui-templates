@@ -1,0 +1,25 @@
+{
+  "name": "@storybook/vue-next",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "dependencies": {
+    "@storybook/core": "^5.3.18",
+    "global": "^4.4.0",
+    "ts-dedent": "^1.1.1",
+    "vue": "^3.0.0-beta.5"
+  },
+  "engines": {
+    "node": ">= 12.x",
+    "npm": ">= 6.x",
+    "yarn": ">= 1.x"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

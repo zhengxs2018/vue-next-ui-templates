@@ -1,0 +1,28 @@
+{
+  "name": "@vue-next-ui/examples",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development"
+  },
+  "dependencies": {
+    "@vue-next-ui/button": "0.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "vue": "^3.0.0-beta.5",
+    "vue-router": "^4.0.0-alpha.9"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  },
+  "engines": {
+    "node": ">= 12.x",
+    "npm": ">= 6.x",
+    "yarn": ">= 1.x"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

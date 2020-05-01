@@ -1,0 +1,115 @@
+{
+  "name": "vue-next-ui-templates",
+  "version": "0.0.0",
+  "description": "Vue 3.x UI 组件库样板工程",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm:watch\" \"npm:examples\"",
+    "examples": "lerna run dev --scope @vue-next-ui/examples",
+    "ui": "concurrently \"npm:watch\" \"npm:storybook\"",
+    "storybook": "node scripts/dev.js -p 6006",
+    "build": "tsc -b",
+    "watch": "tsc -b -w --preserveWatchOutput",
+    "typedoc": "typedoc --options typedoc.js packages",
+    "test": "jest",
+    "cov": "jest --coverage",
+    "ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "lint": "concurrently \"npm:lint:*\"",
+    "lint:js": "prettier *.js --write",
+    "lint:ts": "prettier --parser=typescript \"{.storybook,packages/**}/*.ts(x)?\" --write",
+    "lint:vue": "prettier --parser=vue packages/**/*.vue --write",
+    "commit": "git-cz",
+    "clean": "rimraf dist dist-docs docs/api packages/**/dist packages/**/tsconfig.tsbuildinfo",
+    "release": "lerna publish --force-publish=\"*\"",
+    "canary": "lerna publish -y --canary --preid alpha --pre-dist-tag alpha",
+    "bate": "lerna publish --force-publish=\"*\" --dist-tag next --preid bate",
+    "prepublishOnly": "npm build"
+  },
+  "workspaces": [
+    "packages/@storybook/vue-next",
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.jsx?": [
+      "prettier --write"
+    ],
+    "*.tsx?": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./cz-config.js"
+    }
+  },
+  "dependencies": {
+    "@storybook/vue-next": "0.0.0",
+    "@vue/runtime-dom": "^3.0.0-beta.4",
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0-beta.4",
+    "vue-router": "^4.0.0-alpha.7"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.7.19",
+    "@microsoft/api-extractor": "^7.7.13",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/core": "^5.3.18",
+    "@types/jest": "^25.1.5",
+    "@types/jsdom": "^16.2.1",
+    "@types/node": "^13.11.0",
+    "@types/webpack": "^4.41.12",
+    "@types/webpack-env": "^1.15.2",
+    "@vue/compiler-sfc": "^3.0.0-beta.4",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "babel-merge": "^3.0.0",
+    "commitizen": "^4.0.3",
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.1.0",
+    "cz-customizable": "^6.2.0",
+    "husky": "^4.2.3",
+    "jest": "^25.2.7",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "ts-dedent": "^1.1.1",
+    "ts-jest": "^25.3.0",
+    "ts-loader": "^7.0.1",
+    "typedoc": "^0.17.4",
+    "typedoc-plugin-lerna-packages": "^0.3.0",
+    "typescript": "^3.8.3",
+    "vue-loader": "^16.0.0-alpha.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2"
+  },
+  "homepage": "https://github.com/zhengxs2018/vue-next-ui-templates",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhengxs2018/vue-next-ui-templates"
+  },
+  "bugs": {
+    "url": "https://github.com/zhengxs2018/vue-next-ui-templates/issues"
+  },
+  "engines": {
+    "node": ">= 12.x",
+    "npm": ">= 6.x",
+    "yarn": ">= 1.x"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

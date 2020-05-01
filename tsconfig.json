@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig-base.json",
+  "references": [
+    {"path": "packages/@storybook/vue-next"},
+    { "path": "packages/button" }
+  ],
+  /* The remaining fields are necessary to prevent double compilation */
+  "files": [],
+  "include": []
+}
