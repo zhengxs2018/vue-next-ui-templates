@@ -1,0 +1,56 @@
+// Color Palette
+$black: #000 !default;
+$white: #fff !default;
+$gray-1: #f7f8fa !default;
+$gray-2: #f2f3f5 !default;
+$gray-3: #ebedf0 !default;
+$gray-4: #dcdee0 !default;
+$gray-5: #c8c9cc !default;
+$gray-6: #969799 !default;
+$gray-7: #646566 !default;
+$gray-8: #a8a8c2 !default;
+$red: #ee0a24 !default;
+$blue: #1890ff !default;
+$orange: #ff976a !default;
+$orange-dark: #ed6a0c !default;
+$orange-light: #fffbe8 !default;
+$green: #07c160 !default;
+
+// Brand color
+$primary-color: $blue;
+
+// Component Colors
+$text-color: #333 !default;
+$active-color: $gray-2 !default;
+$active-opacity: 0.7 !default;
+$disabled-opacity: 0.5 !default;
+$background-color: $gray-1 !default;
+$background-color-light: #fafafa !default;
+
+// Padding
+$padding-base: 4px !default;
+$padding-xs: $padding-base * 2 !default;
+$padding-sm: $padding-base * 3 !default;
+$padding-md: $padding-base * 4 !default;
+$padding-lg: $padding-base * 6 !default;
+$padding-xl: $padding-base * 8 !default;
+
+// Font
+$font-size-xs: 10px !default;
+$font-size-sm: 12px !default;
+$font-size-md: 14px !default;
+$font-size-lg: 16px !default;
+$font-weight-bold: 500 !default;
+
+// Animation
+$animation-duration-base: 0.3s !default;
+$animation-duration-fast: 0.2s !default;
+$animation-ease-in-out: ease-in-out;
+
+// Border
+$border-color: $gray-3 !default;
+$border-width-base: 1px !default;
+$border-radius-sm: 2px !default;
+$border-radius-md: 4px !default;
+$border-radius-lg: 8px !default;
+$border-radius-max: 999px !default;

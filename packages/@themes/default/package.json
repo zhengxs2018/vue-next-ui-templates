@@ -1,0 +1,47 @@
+{
+  "name": "@vue-next-ui/theme-default",
+  "version": "0.0.0",
+  "description": "",
+  "module": "lib/index.css",
+  "style": "lib/index.css",
+  "scripts": {
+    "watch": "cross-env NODE_ENV=development gulp watch",
+    "build": "cross-env NODE_ENV=production gulp build"
+  },
+  "keywords": [
+    "vue-next",
+    "theme",
+    "default",
+    "typescript"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "sass-bem": "^2.6.5"
+  },
+  "devDependencies": {
+    "chokidar": "^3.4.0",
+    "cross-env": "^7.0.2",
+    "fibers": "^5.0.0",
+    "graceful-fs": "^4.2.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "engines": {
+    "node": ">= 10",
+    "npm": ">= 6"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,34 @@
+@import './common/_bem.scss';
+@import './common/_variables.scss';
+
+@include component('button') {
+  position: relative;
+  display: inline-block;
+  height: 32px;
+  padding: 4px 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  font-size: $font-size-md;
+  color: $text-color;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  touch-action: manipulation;
+  background: none #fff;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+  -webkit-appearance: button;
+
+  @include element(('icon', 'text')) {
+    display: inline-block;
+    pointer-events: none;
+  }
+
+  @include modifier('primary') {
+    color: #fff;
+    border-color: $primary-color;
+    background-color: $primary-color;
+  }
+}

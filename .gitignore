@@ -24,10 +24,10 @@ dist/
 dist-docs/
 *.tsbuildinfo
 
-logs/
-run/
-backups/
+# Theme build output
+packages/@themes/*/lib
 
+backups/
 docs/api/
 
 package-lock.json
