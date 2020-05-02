@@ -4,19 +4,25 @@
 
     <router-link to="/about">go about</router-link>
 
-    <div>text: {{ count }}</div>
+    <br />
 
-    <ui-button @click="count++">
-      add
+    <p>count: {{ count }}</p>
+
+    <ui-button type="primary" style="margin-right: 5px" @click="count ++">
+      +
     </ui-button>
 
-    <ui-button text="按钮33"></ui-button>
+    <ui-button type="primary" @click="count--">
+      -
+    </ui-button>
+
   </div>
 </template>
 
 <script>
 import { ref } from 'vue'
-import Button from '@vue-next-ui/button'
+
+import { Button } from "vue-next-ui";
 
 export default {
   name: 'Home',
@@ -26,7 +32,7 @@ export default {
     }
   },
   components: {
-    'ui-button': Button,
-  },
+    'ui-button': Button
+  }
 }
 </script>

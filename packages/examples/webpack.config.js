@@ -15,7 +15,7 @@ module.exports = (env = {}) => ({
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'jsx', '.vue', 'json'],
     alias: {
-      vue$: require.resolve('vue/dist/vue.esm-bundler.js')
+      vue$: require.resolve('vue/dist/vue.esm-bundler.js'),
     },
   },
   module: {
@@ -25,7 +25,7 @@ module.exports = (env = {}) => ({
         use: {
           loader: 'ts-loader',
           options: {
-            transpileOnly: true
+            transpileOnly: true,
           },
         },
         exclude: /node_modules/,
@@ -34,9 +34,24 @@ module.exports = (env = {}) => ({
         test: /\.vue$/,
         use: 'vue-loader',
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: true },
+          },
+          'sass-loader',
+        ],
+      },
     ],
   },
-  plugins: [new VueLoaderPlugin(), new HtmlWebpackPlugin()],
+  plugins: [new VueLoaderPlugin(), new HtmlWebpackPlugin({ template: './public/index.html' })],
   devServer: {
     inline: true,
     overlay: true,

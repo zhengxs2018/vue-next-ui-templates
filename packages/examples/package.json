@@ -7,13 +7,14 @@
     "dev": "webpack-dev-server --mode=development"
   },
   "dependencies": {
-    "@vue-next-ui/button": "0.0.0",
-    "html-webpack-plugin": "^4.3.0",
+    "@vue-next-ui/theme-default": "0.0.0",
     "vue": "^3.0.0-beta.5",
+    "vue-next-ui": "0.0.0",
     "vue-router": "^4.0.0-alpha.9"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.10.3",
+    "html-webpack-plugin": "^4.3.0"
   },
   "engines": {
     "node": ">= 12.x",
