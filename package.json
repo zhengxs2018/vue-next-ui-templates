@@ -4,29 +4,37 @@
   "description": "Vue 3.x UI 组件库样板工程",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm:watch\" \"npm:examples\"",
+    "bootstrap": "lerna bootstrap",
+    "dev": "concurrently \"yarn:watch:*\" \"yarn:examples\"",
     "examples": "lerna run dev --scope @vue-next-ui/examples",
-    "ui": "concurrently \"npm:watch\" \"npm:storybook\"",
+    "ui": "concurrently \"yarn:watch\" \"yarn:storybook\"",
     "storybook": "node scripts/dev.js -p 6006",
-    "build": "tsc -b",
-    "watch": "tsc -b -w --preserveWatchOutput",
+    "build": "concurrently \"yarn:build:*\"",
+    "build:ts": "tsc -b",
+    "build:css": "yarn workspace @vue-next-ui/theme-default build",
+    "watch": "concurrently \"yarn:watch:*\"",
+    "watch:ts": "tsc -b -w --preserveWatchOutput",
+    "watch:css": "yarn workspace @vue-next-ui/theme-default watch",
     "typedoc": "typedoc --options typedoc.js packages",
     "test": "jest",
     "cov": "jest --coverage",
     "ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "concurrently \"npm:lint:*\"",
-    "lint:js": "prettier *.js --write",
+    "lint": "concurrently \"yarn:lint:*\"",
+    "lint:js": "prettier *.js \"packages/**/*.js(x)?\" --write",
     "lint:ts": "prettier --parser=typescript \"{.storybook,packages/**}/*.ts(x)?\" --write",
     "lint:vue": "prettier --parser=vue packages/**/*.vue --write",
+    "lint:css": "prettier --parser=scss packages/@themes/**/*.scss --write",
     "commit": "git-cz",
     "clean": "rimraf dist dist-docs docs/api packages/**/dist packages/**/tsconfig.tsbuildinfo",
+    "clean:force": "yarn run clean && rimraf packages/**/node_modules",
     "release": "lerna publish --force-publish=\"*\"",
     "canary": "lerna publish -y --canary --preid alpha --pre-dist-tag alpha",
     "bate": "lerna publish --force-publish=\"*\" --dist-tag next --preid bate",
-    "prepublishOnly": "npm build"
+    "prepublishOnly": "yarn build"
   },
   "workspaces": [
     "packages/@storybook/vue-next",
+    "packages/@themes/*",
     "packages/*"
   ],
   "husky": {
@@ -36,11 +44,17 @@
     }
   },
   "lint-staged": {
-    "*.jsx?": [
+    "*.js(x)?": [
       "prettier --write"
     ],
-    "*.tsx?": [
+    "*.ts(x)?": [
       "prettier --parser=typescript --write"
+    ],
+    "*.vue": [
+      "prettier --parser=vue --write"
+    ],
+    "*.scss": [
+      "prettier --parser=scss --write"
     ]
   },
   "config": {
@@ -53,14 +67,12 @@
   },
   "dependencies": {
     "@storybook/vue-next": "0.0.0",
-    "@vue/runtime-dom": "^3.0.0-beta.4",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-beta.4",
+    "vue-next-ui": "0.0.0",
     "vue-router": "^4.0.0-alpha.7"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.7.19",
-    "@microsoft/api-extractor": "^7.7.13",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/core": "^5.3.18",
@@ -80,9 +92,12 @@
     "cz-customizable": "^6.2.0",
     "husky": "^4.2.3",
     "jest": "^25.2.7",
+    "json5": "^2.1.3",
+    "lerna": "^3.20.2",
     "lint-staged": "^10.1.1",
     "prettier": "^2.0.2",
     "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
     "ts-dedent": "^1.1.1",
     "ts-jest": "^25.3.0",
     "ts-loader": "^7.0.1",
