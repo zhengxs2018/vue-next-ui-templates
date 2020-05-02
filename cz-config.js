@@ -1,13 +1,12 @@
 const { resolve, basename, extname } = require('path')
 const { readdirSync } = require('fs')
 
-const flatten = require('lodash/flatten')
-
 const scopes = [
   createScopes('package', readdirSync(resolve(__dirname, 'packages'))),
-  createScopes('builtin', readdirSync(resolve(__dirname, 'packages/builtin/src'))),
-  createScopes('plugins', readdirSync(resolve(__dirname, 'packages/internal-plugins/src'))),
+  createScopes('themes', readdirSync(resolve(__dirname, 'packages/@themes')))
 ]
+
+console.log(scopes.flat())
 
 module.exports = {
   types: [
@@ -58,7 +57,7 @@ module.exports = {
 
 function createScopes(namespace, items) {
   return items.reduce((scopes, filename) => {
-    if (filename.indexOf('index') === 0 || filename.indexOf('_') === 0) return scopes
+    if (filename.indexOf('index') === 0 || filename.indexOf('@') === 0 || filename.indexOf('_') === 0) return scopes
     return scopes.concat(`${namespace}:${basename(filename, extname(filename))}`)
   }, [])
 }
