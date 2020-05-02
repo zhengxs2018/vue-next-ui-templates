@@ -1,0 +1,22 @@
+{
+  "name": "vue-next-ui",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@vue-next-ui/button": "0.0.0",
+    "vue": "^3.0.0-beta.6"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 12.x",
+    "npm": ">= 6.x",
+    "yarn": ">= 1.x"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}

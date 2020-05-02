@@ -8,6 +8,7 @@
     "composite": true,
     "esModuleInterop": true,
     "importHelpers": true,                 /* Import emit helpers from 'tslib'. */
+    "isolatedModules": true,
 
     /* Strict Type-Checking Options */
     "strict": true,
@@ -37,6 +38,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 
+    /* 拓展 */
     "lib": [
       "dom",
       "ES2019.array",
@@ -44,7 +46,8 @@
     ],
 
     /* Cli Options */
-    "pretty": true
+    "pretty": true,
+    "noEmitOnError": true
   },
   "exclude": ["*.stories.[tj]x?"]
 }
